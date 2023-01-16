@@ -96,8 +96,8 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Приложение для зубных техников!!!',
-              style: Theme.of(context).textTheme.headline5,
+              'Приложение для зубных техников!?',
+              style: Theme.of(context).textTheme.headline6,
             ),
           ],
         ),
