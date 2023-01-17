@@ -96,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Комит из codespace',
+              'yet another test build',
               style: Theme.of(context).textTheme.headline6,
             ),
           ],
