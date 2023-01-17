@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_ui_auth/firebase_ui_auth.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'main_page.dart';
 
 void main() async {
-  runApp(const MyApp());
-  //await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  
-
+  FirebaseUIAuth.configureProviders([
+    EmailAuthProvider(),
+    // ... other providers
+  ]);
+  runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+/*class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
@@ -42,7 +45,19 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
+      body: SignInScreen(
+        actions: [
+          AuthStateChangeAction<SignedIn>((context, state) {
+            if (!state.user!.emailVerified) {
+              Navigator.pushNamed(context, '/verify-email');
+            } else {
+              Navigator.pushReplacementNamed(context, '/profile');
+            }
+          }),
+        ],
+      ),
+
+      /*Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -52,13 +67,70 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
+      ),*/
+      /*floatingActionButton: FloatingActionButton(
         onPressed: () {
           print("hello");
         },
         child: const Icon(Icons.add),
-      ),
+      ),*/
     );
+  }
+}*/
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        routes: {
+          '/main': (context) => MainPage(),
+        },
+        title: 'IDental',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: Stack(
+          alignment: Alignment.topCenter,
+          children: <Widget>[
+            SignInScreen(
+              actions: [
+                AuthStateChangeAction<SignedIn>((context, state) {
+                  if (!state.user!.emailVerified) {
+                    //Navigator.pushNamed(context, '/verify-email');
+                    Navigator.pushNamed(context, '/main');
+                    print("asdasdasdasd");
+                  } else {
+                    //Navigator.pushReplacementNamed(context, '/profile');
+                    print("QWEQWEQOWEJQWOIEJQWOIEH");
+                  }
+                }),
+              ],
+            ),
+            Column(
+              children: [
+                const Padding(
+                  padding: EdgeInsets.only(top: 30.0),
+                  child: SizedBox(
+                    height: 130,
+                    child: Image(image: AssetImage('assets/images/teeth.png')),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 10.0),
+                  child: Text(
+                    'IDental',
+                    style: GoogleFonts.lato(
+                      textStyle: Theme.of(context).textTheme.headline4,
+                      fontSize: 48,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ));
   }
 }
