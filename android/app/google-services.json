@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "494792759008",
+    "project_id": "identalfb",
+    "storage_bucket": "identalfb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:494792759008:android:e6a98e1251566d28dea285",
+        "android_client_info": {
+          "package_name": "space.artemdev.idental"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "494792759008-tccdeejh6tfs9ecbe9iut99dlf59g9a7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjf0UCf0lHa24edXWPlME8cW8hS-yUtjI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "494792759008-tccdeejh6tfs9ecbe9iut99dlf59g9a7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "494792759008-ubctpu96j8uqn8e7eq7mglm6l4cvbco9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "space.artemdev.idental"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
