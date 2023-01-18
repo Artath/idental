@@ -9,7 +9,8 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
+      color: const Color.fromRGBO(250, 250, 250, 1),
       child: Column(
         children: <Widget>[
           Column(
