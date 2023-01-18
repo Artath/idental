@@ -4,7 +4,6 @@ import 'firebase_options.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'login_page.dart';
 import 'main_page.dart';
-import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 
 
 
@@ -86,7 +85,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarcolor.setStatusBarColor(Colors.white);
     return MaterialApp(
       routes: {
         '/main': (context) => MainPage(),
