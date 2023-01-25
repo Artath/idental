@@ -9,6 +9,7 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var providers = [EmailAuthProvider()];
     return Container(
       color: const Color.fromRGBO(250, 250, 250, 1),
       child: Column(
@@ -16,7 +17,7 @@ class LoginPage extends StatelessWidget {
           Column(
             children: [
               const Padding(
-                padding: EdgeInsets.only(top: 30.0),
+                padding: EdgeInsets.only(top: 50.0),
                 child: SizedBox(
                   height: 130,
                   child: Image(image: AssetImage('assets/images/teeth.png')),
@@ -37,16 +38,10 @@ class LoginPage extends StatelessWidget {
           ),
           Expanded(
             child: SignInScreen(
+              providers: providers,
               actions: [
                 AuthStateChangeAction<SignedIn>((context, state) {
-                  if (!state.user!.emailVerified) {
-                    //Navigator.pushNamed(context, '/verify-email');
-                    Navigator.pushNamed(context, '/main');
-                    print("asdasdasdasd");
-                  } else {
-                    //Navigator.pushReplacementNamed(context, '/profile');
-                    print("QWEQWEQOWEJQWOIEJQWOIEH");
-                  }
+                  Navigator.pushReplacementNamed(context, '/main');
                 }),
               ],
             ),
